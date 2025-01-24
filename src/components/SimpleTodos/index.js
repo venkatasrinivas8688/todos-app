@@ -40,8 +40,12 @@ class SimpleTodos extends Component {
     }))
   }
 
-  handleChange = event => {
-    this.setState({[event.target.name]: event.target.value})
+  onChangeTodoTitle = event => {
+    this.setState({newTodoTitle: event.target.value})
+  }
+
+  onChangeTodoCount = event => {
+    this.setState({newTodoCount: event.target.value})
   }
 
   deleteTodo = id => {
@@ -69,14 +73,14 @@ class SimpleTodos extends Component {
               type="text"
               name="newTodoTitle"
               value={newTodoTitle}
-              onChange={this.handleChange}
+              onChange={this.onChangeTodoTitle}
               placeholder="Enter todo title"
             />
             <input
               type="number"
               name="newTodoCount"
               value={newTodoCount}
-              onChange={this.handleChange}
+              onChange={this.onChangeTodoCount}
               placeholder="Enter number of todos"
             />
             <button onClick={this.handleAddTodo} type="button">
